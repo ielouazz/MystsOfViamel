@@ -35,7 +35,7 @@ public class FileUtils {
         try {
             writeFile = new File(path);
         } catch (Exception e) {
-            System.out.println("文件路径异常");
+            System.out.println("WRONG FILE PATH!!!");
         }
         OutputStream writer = null;
         try {
