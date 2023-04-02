@@ -1,11 +1,13 @@
 package adventureGame;
+// TIME TO IMPORT EVERYTHING WOO //
 
+//import draft.java;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-//import printLogo;
 import java.util.ArrayList;
 
-public class intro {
+
+public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     //printing out logo
     public static void logo() throws Exception {
         System.out.println("You see it coming for you..");
@@ -40,6 +42,7 @@ public class intro {
                 + "\n    \\\\  //\n"
                 + "\n     \\\\//\n"
                 + "");
+        //basicRoom.tutorialRoom();
     }
 
     public static void main(String[] args) throws Exception {
@@ -56,7 +59,7 @@ public class intro {
            System.out.println("1. New Game");
            System.out.println("2. Continue");
            int choice = var.nextInt();
-           if (choice == 1) {
+           if (choice == 1) { // if pressed on 1 than a new game will run and intro 
                System.out.println("Starting new game...");
                TimeUnit.SECONDS.sleep(1);
                newGame();
@@ -64,10 +67,10 @@ public class intro {
            } else if (choice == 2) {
                System.out.println("Loading...");
                TimeUnit.SECONDS.sleep(1);
-               // loadGame();
                System.out.println("Enter your name : ");
                try {
                    Role role = loadRole();
+                   draft.draftRoom();
                    exitGame(role);
                } catch (Exception e) {
                    System.out.println("User name does not exist.");
@@ -85,7 +88,7 @@ public class intro {
     }
 
     // Exit Game
-    private static void exitGame(Role role) {
+    public static void exitGame(Role role) {
         FileUtils.write(role.getName() + ".txt", role.toString());
         System.out.println("Game Over");
         System.exit(0);
@@ -94,7 +97,7 @@ public class intro {
     /**
      * Load game
      */
-    private static Role loadRole() throws Exception{
+    public static Role loadRole() throws Exception{
         Scanner scanner = new Scanner(System.in);
         String st = scanner.nextLine();
         String read = FileUtils.read(st + ".txt");
@@ -108,14 +111,27 @@ public class intro {
     }
 
     // New Game
-    private static void newGame() {
+    public static void newGame() {
+    	//PLAYER SPRITES
+    	// String X_lined prints all the sprites of that category next to each other
+    	// List<String> X is an array of the sprites so that they can be printed individually
+    	String race_lined = " O    'O'\n/|\\   /|\\   _o_\n/\\    /\\    /\\";
+        List<String> hu = Collections.unmodifiableList(
+           Arrays.asList(" O  *\n/|\\/\n/\\"," O |\n/|\\T\n/\\"," O |\\\n/|\\|/\n/\\"));
+        String hu_lined = " O *   O |   O |\\\n/|\\/  /|\\T  /|\\|/\n/\\    /\\    /\\";
+        List<String> elf = Collections.unmodifiableList(
+           Arrays.asList(" 'O' *\n /|\\/\n /\\"," 'O'|\n /|\\T\n /\\"," 'O'|\\\n /|\\|/\n /\\"));
+        String elf_lined = " 'O' *   'O'|     'O'|\\\n /|\\/    /|\\T     /|\\|/\n /\\      /\\       /\\";
+        List<String> dwa = Collections.unmodifiableList(
+           Arrays.asList("    *\n_o_/\n/\\","   |\n_o_T\n/\\","_o_|\\\n/\\ |/"));
+        String dwa_lined = "    *      |\n_o_/    _o_T    _o_|\\\n/\\      /\\      /\\ |/";
         try {
             logo();
 
             System.out.println("Enter your name : ");
             Scanner var = new Scanner(System.in);
             String st = var.nextLine();
-            Role role = creatNewUser(st);
+            Role role = createNewUser(st);
             //int life = 0;
             List<String> items = new ArrayList<>();
 
@@ -207,12 +223,12 @@ public class intro {
         } catch (Exception e) {
             System.out.println("Error" );
         }
+        
     }
 
     // Create a new user
-    private static Role creatNewUser(String st) {
+    public static Role createNewUser(String st) {
         Role role = new Role();
-        role.setAge(0);
         role.setPronouns("they");
         role.setName(st);
         role.setGold(5);
@@ -220,6 +236,7 @@ public class intro {
         role.setXp(0);
         FileUtils.write(st + ".txt", role.toString());
         return role;
+        //draft.draftRoom();
     }
 
 }
