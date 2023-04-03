@@ -4,16 +4,20 @@ public class Role {
     // name/pronouns/age/health/gold/xp
     private String name;
     private String pronouns;
-    private int age;
+    private String race;
+    private String p_class; //class is a key word for Java
+    private String sprite;
     private int health;
     private int gold;
     private int xp;
 
-    public Role(String name, String pronouns, int age, int health, int gold, int xp) {
+    public Role(String name, String pronouns, String race, String p_class, String sprite, int health, int gold, int xp) {
     	// Reference to a current object 
         this.name = name;
         this.pronouns = pronouns;
-        this.age = age;
+        this.race = race;
+        this.p_class = p_class;
+        this.sprite = sprite;
         this.health = health;
         this.gold = gold;
         this.xp = xp;
@@ -21,7 +25,7 @@ public class Role {
 
     public String toString() {
     	//Format or the order we store in the text file
-        return name + "|" + pronouns + "|" + age + "|" + health + "|" + gold + "|" + xp;
+        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + health + "|" + gold + "|" + xp;
     }
 
     public Role() {
@@ -47,17 +51,37 @@ public class Role {
     	//Set the new pronouns string for later acquisition if there is any
         this.pronouns = pronouns;
     }
-
-    public int getAge() {
-    	//Acquire the current age number
-        return age;
+    
+    public String getRace() {
+    	//Acquire the race
+        return race;
     }
 
-    public void setAge(int age) {
-    	//Set the new age 
-        this.age = age;
+    public void setRace(String race) {
+    	//Set the new race string for later acquisition if there is any
+        this.race = race;
     }
 
+    public String getp_Class() {
+    	//Acquire the class
+        return p_class;
+    }
+
+    public void setp_Class(String p_class) {
+    	//Set the new class string for later acquisition if there is any
+        this.p_class = p_class;
+    }
+    
+    public String getSprite() {
+    	//Acquire the sprite
+        return sprite;
+    }
+
+    public void setSprite(String sprite) {
+    	//Set the new sprite string for later acquisition if there is any
+        this.sprite = sprite;
+    }
+    
     public int getHealth() {
     	//Acquire the current health number
         return health;
