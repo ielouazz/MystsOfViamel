@@ -147,8 +147,8 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             List<String> items = new ArrayList<>();
 
             ArrayList<String> Race = new ArrayList<String>();
-            Race.add("Elf");
             Race.add("Human");
+            Race.add("Elf");
             Race.add("Dwarf");
 
             System.out.println(race_lined);
