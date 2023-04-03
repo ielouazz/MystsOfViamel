@@ -63,6 +63,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                System.out.println("Starting new game...");
                TimeUnit.SECONDS.sleep(1);
                newGame();
+               //New Game Function listed below
 
            } else if (choice == 2) {
                System.out.println("Loading...");
@@ -70,8 +71,13 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                System.out.println("Enter your name : ");
                try {
                    Role role = loadRole();
+                   //Synthesize the file path according to the input name
+                    //Read the corresponding file
+                    //Function below
                    draft.draftRoom();
                    exitGame(role);
+                   // Exiting game to save the data to text file with FileUtils 
+                    // Function listed below
                } catch (Exception e) {
                    System.out.println("User name does not exist.");
                    System.out.println("Starting new game...");
@@ -90,7 +96,9 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     // Exit Game
     public static void exitGame(Role role) {
         FileUtils.write(role.getName() + ".txt", role.toString());
+        //Using the write function in FIleUtils to save the data to the text file
         System.out.println("Game Over");
+        //Could be edit or connect or loop in to other world
         System.exit(0);
     }
 
@@ -127,6 +135,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         String dwa_lined = "    *      |\n_o_/    _o_T    _o_|\\\n/\\      /\\      /\\ |/";
         try {
             logo();
+            //print logo
 
             System.out.println("Enter your name : ");
             Scanner var = new Scanner(System.in);
