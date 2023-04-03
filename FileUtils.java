@@ -4,8 +4,10 @@ import java.io.*;
 
 
 public class FileUtils {
+	//This is fixed way of reading file 
     public static String read(String pathName)  throws IOException {
         String path = "src/user/" +  pathName;
+    	//Only difference is different path of reading files
         File readFile = null;
         StringBuilder stringBuilder = null;
         readFile = new File(path);
@@ -30,12 +32,14 @@ public class FileUtils {
 
 
     public static void write(String pathName, String text) {
+    	//This is fixed way of writing on files
         String path = "src/user/" +  pathName;
+      //Only difference is different path of writing files
         File writeFile = null;
         try {
             writeFile = new File(path);
         } catch (Exception e) {
-            System.out.println("WRONG FILE PATH!!!");
+            System.out.println("File Path Error!!");
         }
         OutputStream writer = null;
         try {
