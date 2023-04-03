@@ -76,7 +76,6 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    //Synthesize the file path according to the input name
                     //Read the corresponding file
                     //Function below
-                   draft.draftRoom();
                    exitGame(role);
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
@@ -112,7 +111,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         String st = scanner.nextLine();
         String read = FileUtils.read(st + ".txt");
         String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]));
+        Role role = new Role(split[0], split[1], split[2], split[3], split[4], Integer.parseInt(split[5]), Integer.parseInt(split[6]), Integer.parseInt(split[7]));
         System.out.println("Welcome back " + role.getName() + "!");
         System.out.println("health: " + role.getHealth());
         System.out.println("gold: " + role.getGold());
@@ -163,11 +162,14 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             }
             if (ra.equals("elf")) {
                 role.setHealth(25);
+                role.setRace("elf");
                 System.out.println("\nYou gained + 5 life!");
             } else if (ra.equals("human")) {
                 role.setXp(5);
+                role.setRace("human");
                 System.out.println("\nYou gained + 5 experience!");
             } else {
+            	role.setRace("dwarf");
                 role.setGold(10);
                 System.out.println("\nYou have gained + 10 gold!");
             }
@@ -192,12 +194,15 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
 
             }
             if (cl.equals("wizard")) {
+            	role.setp_Class("wizard");
                 items.add("wand");
                 System.out.println("\nYou have gained a wand!");
             } else if (cl.equals("knight")) {
+            	role.setp_Class("knight");
                 items.add("sword");
                 System.out.println("\nYou have gained a sword!");
             } else {
+            	role.setp_Class("archer");
                 items.add("archer bow + 10 arrows");
                 System.out.println("\nYou have gained a archer bow and 10 arrows!");
             }
@@ -225,6 +230,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    player_sprite = dwa.get(1);}
                 else{
                    player_sprite = dwa.get(2);}}
+            role.setSprite(player_sprite);
 
 
 
@@ -276,12 +282,14 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         Role role = new Role();
         role.setPronouns("they");
         role.setName(st);
+        role.setRace(st);
+        role.setp_Class(st);
+        role.setSprite(st);
         role.setGold(5);
         role.setHealth(20);
         role.setXp(0);
         FileUtils.write(st + ".txt", role.toString());
         return role;
-        //draft.draftRoom();
     }
 
 }
