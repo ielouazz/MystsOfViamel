@@ -1,5 +1,9 @@
 package adventureGame;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Role {
     // name/pronouns/age/health/gold/xp
     private String name;
@@ -7,17 +11,19 @@ public class Role {
     private String race;
     private String p_class; //class is a key word for Java
     private String sprite;
+    private String inventory;
     private int health;
     private int gold;
     private int xp;
 
-    public Role(String name, String pronouns, String race, String p_class, String sprite, int health, int gold, int xp) {
+    public Role(String name, String pronouns, String race, String p_class, String sprite, String inventory, int health, int gold, int xp) {
     	// Reference to a current object 
         this.name = name;
         this.pronouns = pronouns;
         this.race = race;
         this.p_class = p_class;
         this.sprite = sprite;
+        this.inventory = inventory;
         this.health = health;
         this.gold = gold;
         this.xp = xp;
@@ -25,7 +31,7 @@ public class Role {
 
     public String toString() {
     	//Format or the order we store in the text file
-        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + health + "|" + gold + "|" + xp;
+        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + "|" + inventory + "|" + health + "|" + gold + "|" + xp;
     }
 
     public Role() {
@@ -80,6 +86,17 @@ public class Role {
     public void setSprite(String sprite) {
     	//Set the new sprite string for later acquisition if there is any
         this.sprite = sprite;
+    }
+    
+    public List<String> getInventory() {
+    	//Acquire the inventory
+    	List<String> items = Arrays.asList(inventory.split("\\s*,\\s*"));
+        return items;
+    }
+
+    public void setInventory(String inventory) {
+    	//Set the new sprite string for later acquisition if there is any
+        this.inventory = inventory;
     }
     
     public int getHealth() {
