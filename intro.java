@@ -76,7 +76,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    //Synthesize the file path according to the input name
                     //Read the corresponding file
                     //Function below
-                   draft.draftRoom();
+                   //draft.draftRoom();
                    driver.exitGame(role);
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
@@ -104,7 +104,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         String st = scanner.nextLine();
         String read = FileUtils.read(st + ".txt");
         String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]));
+        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
         System.out.println("Welcome back " + role.getName() + "!");
         System.out.println("health: " + role.getHealth());
         System.out.println("gold: " + role.getGold());
@@ -136,7 +136,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             String st = var.nextLine();
             Role role = createNewUser(st);
             //int life = 0;
-            List<String> items = new ArrayList<>();
+            String items = "";
 
             ArrayList<String> Race = new ArrayList<String>();
             Race.add("Human");
@@ -155,12 +155,15 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             }
             if (ra.equals("elf")) {
                 role.setHealth(25);
+                role.setRace("elf");
                 System.out.println("\nYou gained + 5 life!");
             } else if (ra.equals("human")) {
                 role.setXp(5);
+                role.setRace("human");
                 System.out.println("\nYou gained + 5 experience!");
             } else {
                 role.setGold(10);
+                role.setRace("dwarf");
                 System.out.println("\nYou have gained + 10 gold!");
             }
             
@@ -184,15 +187,19 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
 
             }
             if (cl.equals("wizard")) {
-                items.add("wand");
+                items += "wand, ";
+                role.setp_Class("wizard");
                 System.out.println("\nYou have gained a wand!");
             } else if (cl.equals("knight")) {
-                items.add("sword");
+            	items += "sword, ";
+                role.setp_Class("knight");
                 System.out.println("\nYou have gained a sword!");
             } else {
-                items.add("archer bow + 10 arrows");
+            	items += "archer bow, 10 arrows, ";
+                role.setp_Class("archer");
                 System.out.println("\nYou have gained a archer bow and 10 arrows!");
             }
+            role.setInventory(items);
             
           //Sets the player's sprite to the correct race and class
             String player_sprite = "";
@@ -217,6 +224,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    player_sprite = dwa.get(1);}
                 else{
                    player_sprite = dwa.get(2);}}
+            role.setSprite(player_sprite);
 
 
 
@@ -252,13 +260,13 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             System.out.println("\nYour class is: " + cl);
             TimeUnit.SECONDS.sleep(2);
             // hey you got certain item based on ur race
-            System.out.println("\nInside your inventory is " + items);
+            System.out.println("\nYour inventory: " + items);
             TimeUnit.SECONDS.sleep(2);
             System.out.println("\nYour pronoun is: " + role.getPronouns());
             TimeUnit.SECONDS.sleep(2);
-            driver.tutorialRoom();
+            driver.exitGame(role);
+            //driver.tutorialRoom();
             //draft.draftRoom();
-            //exitGame(role);
         } catch (Exception e) {
             System.out.println("Error" );
         }
@@ -270,6 +278,10 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         Role role = new Role();
         role.setPronouns("they");
         role.setName(st);
+        role.setRace("X");
+        role.setp_Class("X");
+        role.setSprite("X");
+        role.setInventory("X");
         role.setGold(5);
         role.setHealth(20);
         role.setXp(0);
@@ -277,5 +289,11 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         return role;
         //draft.draftRoom();
     }
+    
+    /*private static void exitGame(Role role) {
+        FileUtils.write(role.getName() + ".txt", role.toString());
+        System.out.println("Game Over");
+        System.exit(0);
+        }*/
 
 }
