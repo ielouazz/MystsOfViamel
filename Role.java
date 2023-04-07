@@ -88,10 +88,9 @@ public class Role {
         this.sprite = sprite;
     }
     
-    public List<String> getInventory() {
+    public String getInventory() {
     	//Acquire the inventory
-    	List<String> items = Arrays.asList(inventory.split("\\s*,\\s*"));
-        return items;
+    	return inventory;
     }
 
     public void setInventory(String inventory) {
