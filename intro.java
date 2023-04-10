@@ -104,7 +104,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         String st = scanner.nextLine();
         String read = FileUtils.read(st + ".txt");
         String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
+        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
         System.out.println("Welcome back " + role.getName() + "!");
         System.out.println("health: " + role.getHealth());
         System.out.println("gold: " + role.getGold());
@@ -282,6 +282,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         role.setp_Class("X");
         role.setSprite("X");
         role.setInventory("X");
+        role.setLocation("tutorial, ");
         role.setGold(5);
         role.setHealth(20);
         role.setXp(0);
