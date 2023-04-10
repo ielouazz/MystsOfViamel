@@ -12,11 +12,12 @@ public class Role {
     private String p_class; //class is a key word for Java
     private String sprite;
     private String inventory;
+    private String location;
     private int health;
     private int gold;
     private int xp;
 
-    public Role(String name, String pronouns, String race, String p_class, String sprite, String inventory, int health, int gold, int xp) {
+    public Role(String name, String pronouns, String race, String p_class, String sprite, String inventory, String location, int health, int gold, int xp) {
     	// Reference to a current object 
         this.name = name;
         this.pronouns = pronouns;
@@ -24,6 +25,7 @@ public class Role {
         this.p_class = p_class;
         this.sprite = sprite;
         this.inventory = inventory;
+        this.location = location;
         this.health = health;
         this.gold = gold;
         this.xp = xp;
@@ -31,7 +33,7 @@ public class Role {
 
     public String toString() {
     	//Format or the order we store in the text file
-        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + "|" + inventory + "|" + health + "|" + gold + "|" + xp;
+        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + "|" + inventory + "|" + "|" + location + "|" + health + "|" + gold + "|" + xp;
     }
 
     public Role() {
@@ -96,6 +98,16 @@ public class Role {
     public void setInventory(String inventory) {
     	//Set the new sprite string for later acquisition if there is any
         this.inventory = inventory;
+    }
+    
+    public String getLocation() {
+    	//Acquire the current + past locations of player
+        return location;
+    }
+
+    public void setLocation(String location) {
+    	//Add the newest location to location
+        this.location = location;
     }
     
     public int getHealth() {
