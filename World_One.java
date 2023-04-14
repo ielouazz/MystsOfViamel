@@ -6,7 +6,22 @@ import java.util.concurrent.TimeUnit;
 
 
 public class World_One {
+
+	public static Role loadRole() throws Exception{
+        Scanner scanner = new Scanner(System.in);
+        String st = scanner.nextLine();
+        String read = FileUtils.read(st + ".txt");
+        String[] split = read.split("\\|");
+        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
+        System.out.println("Welcome back " + role.getName() + "!");
+        System.out.println("health: " + role.getHealth());
+        System.out.println("gold: " + role.getGold());
+        System.out.println("xp: " + role.getXp());
+        return role;
+    }
+
 	public static void main () throws Exception {
+	Role role = loadRole();
 	//get scanner for question/answer portions
 	Scanner var = new Scanner(System.in);
 	//printing setting stuff
@@ -19,7 +34,7 @@ public class World_One {
         System.out.println("Hint: you need to be able to see: ");
         choice_one = (var.nextLine()).toLowerCase();
         if (choice_one.contains("magic") || choice_one.contains("spell")) {//check if the player is trying to use magic
-        	if(/*check if player does not have a wand*/) {
+        	if(!role.getInventory().contains("wand")) {
         		System.out.println("You cannot cast magic without a wand");
         		choice_one = "";}
         	}
@@ -35,7 +50,7 @@ public class World_One {
         System.out.println("Hint: you need to get past the obstical: ");
         choice_two = (var.nextLine()).toLowerCase();
         if (choice_two.contains("cut")) {//check if the player is trying to cut it
-        	if (/*check if player does not have a sword or arrows*/) {
+        	if (!role.getInventory().contains("sword") || !role.getInventory().contains("arrow")) {
         		System.out.println("You have nothing to cut the skin with");
         		choice_two = "";}
         	}
