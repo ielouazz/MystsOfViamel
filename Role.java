@@ -33,12 +33,13 @@ public class Role {
 
     public String toString() {
     	//Format or the order we store in the text file
-        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + "|" + inventory + "|" + "|" + location + "|" + health + "|" + gold + "|" + xp;
+        return name + "|" + pronouns + "|" + race + "|" + p_class + "|" + sprite + "|" + inventory + "|"  + location + "|" + health + "|" + gold + "|" + xp;
     }
 
     public Role() {
     	//Default constructor
     }
+
 
     public String getName() {
     	//Acquire the name string
