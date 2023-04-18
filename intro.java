@@ -45,7 +45,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         //basicRoom.tutorialRoom();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static Role main() throws Exception {
         //setting variables of experience, money, and health as well as name
         //////////////////////////////////////////////////////////
         System.out.println("Welcome to the game!");
@@ -64,12 +64,12 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             if (choice.equals("1")) {
             	System.out.println("Starting new game...");
                 TimeUnit.SECONDS.sleep(1);
-                newGame();
-                } else if (choice.equals("2")) {
+                Role role = newGame();
+                return role;
+            } else if (choice.equals("2")) {
                 	System.out.println("Loading...");
                 	TimeUnit.SECONDS.sleep(1);
-                   // loadGame();
-                	System.out.println("Enter your name : ");
+//                    loadGame();
 
                try {
                    Role role = loadRole();
@@ -77,9 +77,10 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                     //Read the corresponding file
                     //Function below
                    //draft.draftRoom();
-                   driver.exitGame(role);
+//                   driver.exitGame(role);
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
+                   return role;
                } catch (Exception e) {
                    System.out.println("User name does not exist.");
                    System.out.println("Starting new game...");
@@ -92,7 +93,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
 
        }
 
-
+         return null;
     }
 
 
@@ -101,19 +102,29 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
      */
     public static Role loadRole() throws Exception{
         Scanner scanner = new Scanner(System.in);
-        String st = scanner.nextLine();
-        String read = FileUtils.read(st + ".txt");
-        String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
-        System.out.println("Welcome back " + role.getName() + "!");
-        System.out.println("health: " + role.getHealth());
-        System.out.println("gold: " + role.getGold());
-        System.out.println("xp: " + role.getXp());
-        return role;
+        boolean flag = true;
+        while (flag) {
+            System.out.println("Enter your name : ");
+            String name = scanner.nextLine();
+            if (FileUtils.checkFile(name + ".txt")) {
+                flag = false;
+                String read = FileUtils.read(name + ".txt");
+                String[] split = read.split("\\|");
+                Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
+                System.out.println("Welcome back " + role.getName() + "!");
+                System.out.println("health: " + role.getHealth());
+                System.out.println("gold: " + role.getGold());
+                System.out.println("xp: " + role.getXp());
+                return role;
+            } else {
+                System.out.println("User name does not exist.");
+            }
+        }
+        return null;
     }
 
     // New Game
-    public static void newGame() {
+    public static Role newGame() {
     	//PLAYER SPRITES
     	// String X_lined prints all the sprites of that category next to each other
     	// List<String> X is an array of the sprites so that they can be printed individually
@@ -264,13 +275,14 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             TimeUnit.SECONDS.sleep(2);
             System.out.println("\nYour pronoun is: " + role.getPronouns());
             TimeUnit.SECONDS.sleep(2);
-            driver.exitGame(role);
+//            driver.exitGame(role);
             //driver.tutorialRoom();
             //draft.draftRoom();
+            return role;
         } catch (Exception e) {
             System.out.println("Error" );
         }
-        
+        return null;
     }
 
     // Create a new user
@@ -291,10 +303,10 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         //draft.draftRoom();
     }
     
-    /*private static void exitGame(Role role) {
+    static void exitGame(Role role) {
         FileUtils.write(role.getName() + ".txt", role.toString());
         System.out.println("Game Over");
         System.exit(0);
-        }*/
+        }
 
 }
