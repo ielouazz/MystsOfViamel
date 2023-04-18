@@ -12,7 +12,7 @@ public class World_One {
         String st = scanner.nextLine();
         String read = FileUtils.read(st + ".txt");
         String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
+        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
         System.out.println("Welcome back " + role.getName() + "!");
         System.out.println("health: " + role.getHealth());
         System.out.println("gold: " + role.getGold());
