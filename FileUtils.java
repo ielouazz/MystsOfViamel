@@ -58,4 +58,9 @@ public class FileUtils {
         }
     }
 
+    public static boolean checkFile(String pathName) {
+        String path = "src/user/" +  pathName;
+        File file = new File(path);
+        return file.exists();
+    }
 }
