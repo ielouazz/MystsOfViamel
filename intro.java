@@ -5,41 +5,11 @@ package adventureGame;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
-import java.io.File;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.JOptionPane;
 
 
 public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     //printing out logo
-	public static void PlayMusic(String location) {
-		try {
-			File musicPath = new File(location);
-			if(musicPath.exists())
-			{
-				AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-				Clip clip = AudioSystem.getClip();
-				clip.open(audioInput); // pressing the play button on your CD Player
-				clip.start(); // actually plays the music
-				
-			}
-			else {
-				System.out.println("can't find file!");
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println(e);
-		}
-	}
     public static void logo() throws Exception {
-    	//music//
-		String filepath = "LordOfTheRings.wav";
-		PlayMusic(filepath);
-		JOptionPane.showMessageDialog(null, "Press OK to stop playng");
-		
         System.out.println("You see it coming for you..");
         TimeUnit.SECONDS.sleep(2);
         System.out.println("\nYou had managed to avoid it these past 5 years, but no longer.");
@@ -78,7 +48,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     public static Role main() throws Exception {
         //setting variables of experience, money, and health as well as name
         //////////////////////////////////////////////////////////
-    	
+    //	MusicUtils.PlayMusic(location:"src/LordOfTheRings.wav");
         System.out.println("Welcome to the game!");
         TimeUnit.SECONDS.sleep(1);
         System.out.println("Loading...");
@@ -111,9 +81,20 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
 //                   driver.exitGame(role);
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
+                   if (role == null) {
+                	   System.out.println("\n> Forget your username? No worries. You can:");
+                	   System.out.println("1. Start a NEW game.");
+                	   System.out.println("2. Exit game.");
+                	  int choose =  var.nextInt();
+                	  if(1 == choose) {
+                		  role = newGame();
+                	  }else {
+                		  System.exit(0);
+                	  }
+                   }
                    return role;
                } catch (Exception e) {
-                   System.out.println("User name does not exist.");
+                   System.out.println("This user name does not exist.");
                    System.out.println("Starting new game...");
                }
 
@@ -134,6 +115,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     public static Role loadRole() throws Exception{
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
+        int  i = 0;
         while (flag) {
             System.out.println("Enter your name : ");
             String name = scanner.nextLine();
@@ -141,14 +123,17 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                 flag = false;
                 String read = FileUtils.read(name + ".txt");
                 String[] split = read.split("\\|");
-                Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
+                Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
                 System.out.println("Welcome back " + role.getName() + "!");
                 System.out.println("health: " + role.getHealth());
                 System.out.println("gold: " + role.getGold());
                 System.out.println("xp: " + role.getXp());
                 return role;
             } else {
-                System.out.println("User name does not exist.");
+            	if (i++ >= 2) {
+            		flag = false;
+            	}
+                System.out.println("> This username does not exist.\n> Please double check.\n");
             }
         }
         return null;
@@ -266,7 +251,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    player_sprite = dwa.get(1);}
                 else{
                    player_sprite = dwa.get(2);}}
-           // role.setSprite(player_sprite);
+            role.setSprite(player_sprite);
 
 
 
@@ -323,7 +308,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         role.setName(st);
         role.setRace("X");
         role.setp_Class("X");
-        //role.setSprite("X");
+        role.setSprite("X");
         role.setInventory("X");
         role.setLocation("tutorial, ");
         role.setGold(5);
