@@ -10,47 +10,47 @@ public class driver {
         //tutorialRoom goes here
 //        Scanner var_answer = new Scanner(System.in);
 //        String answer = var_answer.next();
-        System.out.println("Enter the Draft" + " Room!\n ");
+        System.out.println("\n> Enter the Draft" + " Room...\n ");
 
-        System.out.println("With a tail but not a mouse");
+        System.out.println("\n> With a tail but not a mouse");
 
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(3);
 
-        System.out.println("With the wings but not a bird");
+        System.out.println("\n> With the wings but not a bird");
 
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("From every myth and with the horns");
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println("\n> From every myth and with the horns");
 
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("Born from fire wake with wrath");
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println("\n> Born from fire wake with wrath");
 
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(3);
 
-        System.out.println("What am I?");
+        System.out.println("\n> What am I?");
 
-        TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(3);
 
-        System.out.println("\nEnter your answer: ");
+        System.out.println("\n> Enter your answer: ");
 
         String answer = new Scanner(System.in).nextLine();
         if ("dragon".equals(answer.toLowerCase())) {
-            System.out.println("You are right!");
+            System.out.println("\n> You are right!");
             TimeUnit.SECONDS.sleep(1);
             role.setGold(role.getGold() + 5);
-            System.out.println("You got 5 gold!");
+            System.out.println("\n> You got 5 gold!");
             TimeUnit.SECONDS.sleep(1);
         } else {
-            System.out.println("You are wrong!");
+            System.out.println("\n> You are wrong!");
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("I am a dragon!");
+            System.out.println("\n> I am a dragon!");
             role.setHealth(role.getHealth() - 5);
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("You lost 5 health!");
+            System.out.println("\n> You lost 5 health!");
             TimeUnit.SECONDS.sleep(1);
         }
-        System.out.println("leave the room");
+        System.out.println("\n> Moving on to the next stage...");
         FileUtils.write(role.getName() + ".txt", role.toString());
-        System.out.println("Do you want to continue on with the game?(yes/no)");
+        System.out.println("\n> Do you want to continue on with the game?(yes/no)");
         Scanner scanner = new Scanner(System.in);
         String meep = scanner.nextLine();
         if (meep.equals("no")) {
@@ -142,7 +142,7 @@ public class driver {
 //        System.out.println("Now it looks like an empty cave with no monster here. (Type Enter)");
 
 //        TimeUnit.SECONDS.sleep(1);
-        System.out.println("Now it looks like an empty cave with no monster here. [Hint: Type \"Enter\"]");
+        System.out.println("\n> Now it looks like an empty cave with no monster here. [Hint: Type \"Enter\"]");
         Scanner scanner = new Scanner(System.in);
         String enter = scanner.nextLine();
         boolean flag = true;
@@ -150,52 +150,52 @@ public class driver {
             if ("enter".equalsIgnoreCase(enter)) {
                 flag = false;
             } else {
-                System.out.println("OK");
-                System.out.println("Now it looks like an empty cave with no monster here. [Hint: Type \"Enter\"]");
+                System.out.println("\n> OK");
+                System.out.println("\n> Now it looks like an empty cave with no monster here. [Hint: Type \"Enter\"]");
                 enter = scanner.nextLine();
             }
         }
 
-        System.out.println("The gate shuts down the second you walk in. Something shinny buried in the mound.");
+        System.out.println("\n> The gate shuts down the second you walk in. Something shinny buried in the mound.");
         TimeUnit.SECONDS.sleep(1);
-        System.out.println("(Hint: where do you want to check )");
+        System.out.println("\n> (Hint: where do you want to check )");
         String mound = scanner.nextLine();
         flag = true;
         while (flag) {
             if ("check mound".equalsIgnoreCase(mound) || "mound".equalsIgnoreCase(mound)) {
                 flag = false;
             } else {
-                System.out.println("OK");
-                System.out.println("(Hint: where do you want to check )");
+                System.out.println("\n> OK");
+                System.out.println("\n> (Hint: where do you want to check )");
                 mound = scanner.nextLine();
             }
         }
 
-        System.out.println("There is the key! Staring at the gate, what do you want to do next?");
+        System.out.println("\n> There is the key! Staring at the gate, what do you want to do next?");
         TimeUnit.SECONDS.sleep(1);
-        System.out.println("(Hint: escape)");
+        System.out.println("\n> (Hint: escape)");
         String escape = scanner.nextLine();
         flag = true;
         while (flag) {
-            if ("Open the gate".equals(escape) || escape.contains("Open the gate")) {
+            if ("open the gate".equalsIgnoreCase(escape) || escape.contains("open the gate")) {
                 flag = false;
-                System.out.println("You escaped the room!");
+                System.out.println("\n> You escaped the room!");
                 role.setGold(role.getGold() + 5);
-                System.out.println("You got 5 gold!");
+                System.out.println("\n> You got 5 gold!");
                 TimeUnit.SECONDS.sleep(1);
             }else {
-                System.out.println("OK");
-                System.out.println("(Hint: escape)");
+                System.out.println("\n> OK");
+                System.out.println("\n> (Hint: escape)");
                 escape = scanner.nextLine();
             }
         }
-        System.out.println("leave the room");
+        System.out.println("\n> Moving on...");
         FileUtils.write(role.getName() + ".txt", role.toString());
-        System.out.println("Do you want to continue on with the game?(yes/no)");
+        System.out.println("\n> Do you want to continue on with the game?(yes/no)");
         String meep = scanner.nextLine();
         if (meep.equals("no")) {
-            System.out.print("Loading...");
-            System.out.println("Game over");
+            System.out.print("\n> Loading...");
+            System.out.println("\n> Game over");
             System.exit(0);
         }
         game.startGame(role);
