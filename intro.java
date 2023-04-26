@@ -123,7 +123,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                 flag = false;
                 String read = FileUtils.read(name + ".txt");
                 String[] split = read.split("\\|");
-                Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
+                Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], Integer.parseInt(split[6]), Integer.parseInt(split[7]), Integer.parseInt(split[8]));
                 System.out.println("Welcome back " + role.getName() + "!");
                 System.out.println("health: " + role.getHealth());
                 System.out.println("gold: " + role.getGold());
@@ -251,7 +251,6 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    player_sprite = dwa.get(1);}
                 else{
                    player_sprite = dwa.get(2);}}
-            role.setSprite(player_sprite);
 
 
 
@@ -308,7 +307,6 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         role.setName(st);
         role.setRace("X");
         role.setp_Class("X");
-        role.setSprite("X");
         role.setInventory("X");
         role.setLocation("tutorial, ");
         role.setGold(5);
