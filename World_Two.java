@@ -6,6 +6,7 @@ public class World_Two {
 
 	public static void main(Role role) throws Exception{
 		//get scanner for question/answer portions
+		role.setLocation(role.getLocation() + "2");
 		Scanner var = new Scanner(System.in);
 		//printing setting stuff
 		System.out.println("You appear in a lush meadow, flowers cover the ground and a circles of trees shades you and conceals what you can only assume to be the rest of the forest. \n"
@@ -54,7 +55,6 @@ public class World_Two {
 			else {
 				System.out.println("you could do that, but perhaps there's something more relevant to be done...");}}
 			//add world 2 to role
-			role.setLocation(role.getLocation() + "2");
 			TimeUnit.SECONDS.sleep(1);
 			System.out.println("The myst surrounds you once more, no extra moment to contemplate what you have found out.");
 				// wee want to add a save progress or go to next room option around here or make a function and inherit it in the main..?
