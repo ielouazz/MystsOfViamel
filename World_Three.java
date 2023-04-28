@@ -2,23 +2,13 @@ package adventureGame;
 import java.util.*;
 
 public class World_Three {
-	public static Role loadRole() throws Exception{Scanner scanner = new Scanner(System.in);
-    String st = scanner.nextLine();
-    String read = FileUtils.read(st + ".txt");
-    String[] split = read.split("\\|");
-    Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]))
-    		System.out.println("Welcome back " + role.getName() + "!");
-    System.out.println("health: " + role.getHealth());
-    System.out.println("gold: " + role.getGold());
-    System.out.println("xp: " + role.getXp());
-    return role;}
 	
-	public static void main() throws Exception{
+	public static void main(Role role) throws Exception{
 		System.out.println("This is world 3");
 		//get scanner for question/answer portion
+		role.setLocation(role.getLocation()+"3");
 		Scanner var = new Scanner(System.in);
 		System.out.println("You enter a cave");
-		Role role = loadRole();
 		System.out.println("A crystal ball rises up behind the mist, an unusual ethereal voice reverberates through the cave:");
 		System.out.println("Dear stranger, welcome to my carriage. You are automatically a participant in my game,  and I will present mysterious situations to you. Find out the truth behind the veil that I did not tell you by asking further questions. I will only answer \"yes\" or \"no\" to your questions.");
 		System.out.println("A black cat is hiding in a the middle of a road where there is an unlit street lamp. A man is driving his vehicle with no lights to speak of. Despite all of this, he is able to see and avoid harming the cat. How did he do this?");
@@ -30,16 +20,21 @@ public class World_Three {
 			System.out.println("Hint: end with a ? to ask a yes or no question for more information. End with a . to enter your guess. You have " + count + " guesses left");
 			guess = (var.nextLine()).toLowerCase();
 			if (guess.charAt(guess.length() - 1) == '?') {
-				System.out.println("Your question is not relivant");
+				if (guess.contains("cat") && guess.contains("magic")) {
+					System.out.println("The cat is not magical");}
+				else if ((guess.contains("man") || guess.contains("driver")) && guess.contains("magic")) {
+					System.out.println("The driver is not magical");}
+				else if (guess.contains("time") || guess.contains("day") || guess.contains("night") || guess.contains("sun")) {
+					System.out.println("It is daytime");}
+				else{
+					System.out.println("Your question is not relivant");}
 			}
 			else if (guess.charAt(guess.length() - 1) == '.') {
 				if (guess.contains("day") || guess.contains("sun")) {
-					correct = 1;
-				}
+					correct = 1;}
 				else {
 					count -= 1;
-					System.out.println("You are incorrect.");
-				}
+					System.out.println("You are incorrect.");}
 			}
 			else {
 				System.out.println("make sure to end your statement with either a ? or .");
