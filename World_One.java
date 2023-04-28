@@ -7,21 +7,8 @@ import java.util.concurrent.TimeUnit;
 
 public class World_One {
 
-	public static Role loadRole() throws Exception{
-        Scanner scanner = new Scanner(System.in);
-        String st = scanner.nextLine();
-        String read = FileUtils.read(st + ".txt");
-        String[] split = read.split("\\|");
-        Role role = new Role(split[0], split[1], split[2], split[3], split[4], split[5], split[6], Integer.parseInt(split[7]), Integer.parseInt(split[8]), Integer.parseInt(split[9]));
-        System.out.println("Welcome back " + role.getName() + "!");
-        System.out.println("health: " + role.getHealth());
-        System.out.println("gold: " + role.getGold());
-        System.out.println("xp: " + role.getXp());
-        return role;
-    }
-
-	public static void main () throws Exception {
-	Role role = loadRole();
+	public static void main (role Role) throws Exception {
+	role.setLocation(role.getLocation() + "1");
 	//get scanner for question/answer portions
 	Scanner var = new Scanner(System.in);
 	//printing setting stuff
