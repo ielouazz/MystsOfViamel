@@ -3,19 +3,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class World_Two {
-	public static Role loadRole() throws Exception{Scanner scanner = new Scanner(System.in);
-    String st = scanner.nextLine();
-    String read = FileUtils.read(st + ".txt");
-    String[] split = read.split("\\|");
-    Role role = new Role(split[0], split[1], Integer.parseInt(split[2]), Integer.parseInt(split[3]), Integer.parseInt(split[4]), Integer.parseInt(split[5]));
-    System.out.println("Welcome back " + role.getName() + "!");
-    System.out.println("health: " + role.getHealth());
-    System.out.println("gold: " + role.getGold());
-    System.out.println("xp: " + role.getXp());
-    return role;
-	}
 
-	public static void main() throws Exception{
+	public static void main(Role role) throws Exception{
 		//get scanner for question/answer portions
 		Scanner var = new Scanner(System.in);
 		//printing setting stuff
@@ -25,58 +14,55 @@ public class World_Two {
 		String choice_one = ""; // variable for player's choice
 		String choice_two = "";
 		String choice_three = "";
-		Role role = loadRole();
-		//riddle #1
-		while ("look".equals(choice_one.toLowerCase())) {
-			System.out.println("You look to the ground and see a series of runes on the ground");
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("You take a few steps back and see that it actully spells out something...");
-			
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("Loading...");
-			TimeUnit.SECONDS.sleep(1);
-
-			System.out.println("'What goes up and down but does not move?'");
-			if(choice_two.contains("staircase") && choice_two.contains("stair case")){
-				System.out.println("The runes beging to move across the grass, making way for a tunnel that contains a staircase");
-				TimeUnit.SECONDS.sleep(1);
-			}
+		//wait until the player looks around
+		while (!choice_one.contains("look")) {
+			System.out.println("hint: do something with your eyes");
+			choice_one = (var.nextLine()).toLowerCase();}
+		//just talk a lil bit
+		System.out.println("You look to the ground and see a series of runes on the ground");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("You take a few steps back and see that it actully spells out something...");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("'What goes up and down but does not move?'");
+		//second riddle, wait until they say stair
+		while(!choice_two.contains("stair")){
+			System.out.println("keep guessing til you get it right");
+			choice_one = (var.nextLine()).toLowerCase();}
+		//talk a little bit
+		System.out.println("The runes beging to move across the grass, making way for a tunnel that contains a staircase");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("You go down the stairs to a room covered in more runes with a small treasure chest in the corner");
+		TimeUnit.SECONDS.sleep(1);
+		//wait until player says treasure, chest, or runes
+		while (!choice_three.contains("treasure") || !choice_three.contains("chest") || !choice_three.contains("runes")) {
 			System.out.println("What would you like to do?");
-			TimeUnit.SECONDS.sleep(1);
-			
-			if(choice_three.contains("take")) {
+			if(choice_three.contains("treasure") || choice_three.contains("chest")) {
 				role.setGold(role.getGold() + 20);
 				System.out.println("You got 20 gold!");
 				TimeUnit.SECONDS.sleep(1);
-			} else if(choice_three.contains("look")){
+			} else if(choice_three.contains("runes")){
 				System.out.println("You see more runes on the wall that read");
-				TimeUnit.SECONDS.sleep(1);
-				System.out.println("Loading...");
 				TimeUnit.SECONDS.sleep(1);
 				System.out.println("'I do not wish to hoard my gold, I only wish to hold what I love. /n"
 						+ "~ Viamel");
 				TimeUnit.SECONDS.sleep(1);
 				System.out.println("You recognize that name...");
-				TimeUnit.SECONDS.sleep(1);
 				System.out.println("It is what people have been calling the mist.");
-				TimeUnit.SECONDS.sleep(1);
 				System.out.println("But surely mist cannot write anything");
 				TimeUnit.SECONDS.sleep(1);
-				System.out.println("Right?");
-				TimeUnit.SECONDS.sleep(1);
-				System.out.println("Loading...");
-				TimeUnit.SECONDS.sleep(1);
-				System.out.println("The myst surrounds you once more, no extra moment to contemplate what you have found out.");
+				System.out.println("Right?");}
+			else {
+				System.out.println("you could do that, but perhaps there's something more relevant to be done...");}}
+			//add world 2 to role
+			role.setLocation(role.getLocation() + "2");
+			TimeUnit.SECONDS.sleep(1);
+			System.out.println("The myst surrounds you once more, no extra moment to contemplate what you have found out.");
 				// wee want to add a save progress or go to next room option around here or make a function and inherit it in the main..?
-			}
-	}
 		System.out.println("That is not quite it");
 		intro.exitGame(null);
-		
+}
 		
 		//riddle #2
 		
 
 	}
-
-}
