@@ -34,7 +34,7 @@ public class World_Two {
 		System.out.println("You go down the stairs to a room covered in more runes with a small treasure chest in the corner");
 		TimeUnit.SECONDS.sleep(1);
 		//wait until player says treasure, chest, or runes
-		while (!choice_three.contains("treasure") || !choice_three.contains("chest") || !choice_three.contains("runes")) {
+		while (!choice_three.contains("treasure") && !choice_three.contains("chest") && !choice_three.contains("runes")) {
 			System.out.println("What would you like to do?");
 			choice_three = (var.nextLine()).toLowerCase();
 			if(choice_three.contains("treasure") || choice_three.contains("chest")) {
