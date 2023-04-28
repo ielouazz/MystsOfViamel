@@ -27,7 +27,7 @@ public class World_Two {
 		//second riddle, wait until they say stair
 		while(!choice_two.contains("stair")){
 			System.out.println("keep guessing til you get it right");
-			choice_one = (var.nextLine()).toLowerCase();}
+			choice_two = (var.nextLine()).toLowerCase();}
 		//talk a little bit
 		System.out.println("The runes beging to move across the grass, making way for a tunnel that contains a staircase");
 		TimeUnit.SECONDS.sleep(1);
@@ -36,6 +36,7 @@ public class World_Two {
 		//wait until player says treasure, chest, or runes
 		while (!choice_three.contains("treasure") || !choice_three.contains("chest") || !choice_three.contains("runes")) {
 			System.out.println("What would you like to do?");
+			choice_three = (var.nextLine()).toLowerCase();
 			if(choice_three.contains("treasure") || choice_three.contains("chest")) {
 				role.setGold(role.getGold() + 20);
 				System.out.println("You got 20 gold!");
@@ -59,7 +60,7 @@ public class World_Two {
 			System.out.println("The myst surrounds you once more, no extra moment to contemplate what you have found out.");
 				// wee want to add a save progress or go to next room option around here or make a function and inherit it in the main..?
 		System.out.println("That is not quite it");
-		driver.exitGame(role);
+		intro.exitGame(null);
 }
 		
 		//riddle #2
