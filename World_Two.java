@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class World_Two {
 
 	public static void main(Role role) throws Exception{
+		role.setLocation(role.getLocation() + "2");
 		//get scanner for question/answer portions
 		Scanner var = new Scanner(System.in);
 		//printing setting stuff
@@ -55,7 +56,6 @@ public class World_Two {
 			else {
 				System.out.println("you could do that, but perhaps there's something more relevant to be done...");}}
 			//add world 2 to role
-			role.setLocation(role.getLocation() + "2");
 			TimeUnit.SECONDS.sleep(1);
 			System.out.println("The myst surrounds you once more, no extra moment to contemplate what you have found out.");
 				// wee want to add a save progress or go to next room option around here or make a function and inherit it in the main..?
