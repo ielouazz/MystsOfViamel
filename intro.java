@@ -68,7 +68,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                 	System.out.println("Loading...");
                 	TimeUnit.SECONDS.sleep(1);
                     //loadGame();
-               try {
+                try {
                    Role role = loadRole();
                    //Synthesize the file path according to the input name
                     //Read the corresponding file
@@ -76,14 +76,15 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    //draft.draftRoom();
                    //draft.draftRoom();
                    //driver.exitGame(role);
-                   driver.tutorialRoom(role);
+                   tutorialRoom.tutorialRoom(role);
                    //return role;
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
                } catch (Exception e) {
                    System.out.println("User name does not exist.");
                    System.out.println("Starting new game...");
-                   newGame();
+                   Role role = newGame();
+                   tutorialRoom.tutorialRoom(role);
                }
            } else {
                System.out.println("Invalid input");
