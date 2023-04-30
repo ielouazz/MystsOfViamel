@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 public class World_Two {
 
 	public static void main(Role role) throws Exception{
+		System.out.println("World 2");
 		role.setLocation(role.getLocation() + "2");
 		//get scanner for question/answer portions
 		Scanner var = new Scanner(System.in);
@@ -61,6 +62,7 @@ public class World_Two {
 				// wee want to add a save progress or go to next room option around here or make a function and inherit it in the main..?
 		System.out.println("That is not quite it");
 		driver.exitGame(role);
+		driver.die(role);
 }
 		
 		//riddle #2
