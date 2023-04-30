@@ -6,21 +6,26 @@ import java.util.concurrent.TimeUnit;
 
 
 public class World_One {
+	
 
-	public static void main (role Role) throws Exception {
-	role.setLocation(role.getLocation() + "1");
+	public static void main (Role role) throws Exception {
+		role.setLocation(role.getLocation() + "1");
 	//get scanner for question/answer portions
 	Scanner var = new Scanner(System.in);
+
 	//printing setting stuff
 	System.out.println("You enter a cave and notice that there are skeletons holding torches; the men that have already gone down this path that you’re on but did not make it through. \n"
 			+"Going through the cave you notice it is getting darker…");
 	//let player choose how to see in the dark
 	String choice_one = ""; //variable for player's choice
+
 	System.out.println("What would you like to do?: ");
+
     while (!choice_one.contains("torch") && !choice_one.contains("fire") && !choice_one.contains("spell") && !choice_one.contains("magic")) { //only answers that contain these words will break the loop
         System.out.println("Hint: you need to be able to see: ");
         choice_one = (var.nextLine()).toLowerCase();
         if (choice_one.contains("magic") || choice_one.contains("spell")) {//check if the player is trying to use magic
+        	
         	if(!role.getInventory().contains("wand")) {
         		System.out.println("You cannot cast magic without a wand");
         		choice_one = "";}
@@ -66,7 +71,8 @@ public class World_One {
     	/*add the special dagger to the inventory*/}
     //explanation before combat starts
     System.out.println("Suddenly you hear a hissing noise getting louder and louder.\n"
-    		+ "A giant serpent slithers out from the cave.\n"
-    		+ "COMBAT");
+    		+ "A giant serpent slithers out from the cave.\n");
+    
+    game_two.startGame(role);
     }
 }
