@@ -20,7 +20,7 @@ public class tutorialRoom {
         //tutorialRoom goes here
 //        Scanner var_answer = new Scanner(System.in);
 //        String answer = var_answer.next();
-        System.out.println("Enter the Draft" + " Room!\n ");
+        System.out.println("Enter the Tutorial" + " Room!\n ");
 
         System.out.println("With a tail but not a mouse");
 
