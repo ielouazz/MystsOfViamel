@@ -64,7 +64,7 @@ public class driver {
 			exitGame(role);
 		}
 		public static void main(String[] args) throws Exception{
-			
+			MusicUtils.PlayMusic("src/adventureGame/LordOfTheRings.wav");
 			intro.main(args);
 			//tutorialRoom();
 			//die.main(args);
@@ -98,7 +98,7 @@ public class driver {
 	    }
 	    public static void die(Role role) throws Exception {
 	    	//Role role = loadRole();
-	    	int die = (1);
+	    	int die = (int) (Math.random() * 3 + 1);
 	    	if (die == 1) {
             System.out.println("\nYou are being transported by the myst off to....");
             TimeUnit.SECONDS.sleep(2);
