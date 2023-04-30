@@ -4,7 +4,6 @@ import java.util.*;
 public class World_Three {
 	
 	public static void main(Role role) throws Exception{
-		System.out.println("This is world 3");
 		//get scanner for question/answer portion
 		role.setLocation(role.getLocation()+"3");
 		Scanner var = new Scanner(System.in);
