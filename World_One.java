@@ -9,6 +9,8 @@ public class World_One {
 	
 
 	public static void main (Role role) throws Exception {
+		System.out.println("World 1");
+
 		role.setLocation(role.getLocation() + "1");
 	//get scanner for question/answer portions
 	Scanner var = new Scanner(System.in);
@@ -74,5 +76,6 @@ public class World_One {
     		+ "A giant serpent slithers out from the cave.\n");
     
     game_two.startGame(role);
+
     }
 }
