@@ -2,21 +2,42 @@ package adventureGame;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class game {
-    public static void startGame(Role role) {
+	public static void is_dead(Role role) throws Exception {
+        int health = role.getHealth(); // health char starts with
+
+		if (role.getRace() == ("elf")) {
+			role.setHealth(25);
+			System.out.println("Restarting Combat");
+            TimeUnit.SECONDS.sleep(2);
+			System.out.println("Loading...");
+			startGame(role);
+		} else {
+			role.setHealth(20);
+			startGame(role);
+			System.out.println("Restarting Combat");
+            TimeUnit.SECONDS.sleep(2);
+			System.out.println("Loading...");
+			
+			
+		}
+}
+    public static void startGame(Role role)throws Exception {
         Scanner in = new Scanner(System.in);
         Random rand = new Random();
 
         //enemies
         String[] enemies = {"Dragon", "Devil"};
-        int maxEnemyHealth = 75;
-        int enemyAttackDamage = 25;
+        int maxEnemyHealth = 40
+        		;
+        int enemyAttackDamage = 15;
 
         //player
         int health = role.getHealth(); // health char starts with
         // advice ： Randomly generate attack power values
-        int attackDamage = 50;
+        int attackDamage = 15;
         // If you add attack power attributes to the character later on
         // int attackDamage = role.getAttackPower();
         int numHealthPotions = 3; // character starts out with
@@ -36,7 +57,7 @@ public class game {
             String enemy = enemies[rand.nextInt(enemies.length)];
             System.out.println( enemy + " appeared! \n");
 
-            while(enemyHealth > 0) {
+            while(enemyHealth > 0 && health > 0) {
                 System.out.println("Your HP: " + health);
                 System.out.println( enemy + "'s HP: "+ enemyHealth);
                 System.out.println("\nWhat would you like to do?");
@@ -58,7 +79,7 @@ public class game {
 
                     if (health <1) {
                         System.out.println("> You have taken too much damage, you are too weak to go on!");
-                        break;
+                        is_dead(role);
                     }
                 }
                 else if(input.equals("2")) {
@@ -90,7 +111,8 @@ public class game {
             }
             if(health < 1) {
                 System.out.println("You limp out of the dungeon, too weak to continue the battle.");
-                break;
+                is_dead(role);
+
             }
             System.out.println("\n--------------------------------------\n");
             System.out.println( "##  " + enemy + "was defeated  ##");
@@ -126,5 +148,6 @@ public class game {
         System.out.println("###############################");
         role.setHealth(health);
         driver.exitGame(role);
+        driver.die(role);
     }
 }
