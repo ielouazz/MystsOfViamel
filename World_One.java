@@ -35,8 +35,24 @@ public class World_One {
         }
     //more printing for exposition
     System.out.println("So with that, the cave gets much brighter and you continue to walk through with stealthiness and notice that there are noises being made. \n"
-    		+"It sounds like slithering… You hear the walls shifting and hissing beginning to occur.\n"
-    		+"A shredded skin of a giant serpent is blocking the path.");
+    		+"It sounds like slithering… You hear the walls shifting and hissing beginning to occur.");
+    if (role.getRace().contains("human")) {
+    	System.out.println("      __\n"
+                + " O   <_x\\    _______\n"
+                + "/|\\    \\ \\__/ _____ \\____\n"
+                + "/\\      \\____/     \\____/");}
+	else if (role.getRace().contains("elf")) {
+		System.out.println("      __\n"
+	            + "'O'  <_x\\    _______\n"
+	            + "/|\\    \\ \\__/ _____ \\____\n"
+	            + "/\\      \\____/     \\____/");}
+	else {
+		System.out.println("      __\n"
+	            + "     <_x\\    _______\n"
+	            + "_o_    \\ \\__/ _____ \\____\n"
+	            + "/\\      \\____/     \\____/");
+	}
+    System.out.println("A shredded skin of a giant serpent is blocking the path.");
     //let player choose how to get past the skin
     String choice_two = ""; //variable for player's choice
 	System.out.println("What would you like to do?: ");
