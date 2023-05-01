@@ -77,7 +77,11 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    //draft.draftRoom();
                    //draft.draftRoom();
                    //driver.exitGame(role);
-                   tutorialRoom.tutorialRoom(role);
+                   if (!role.getLocation().contains("tutorial")) {
+                	   tutorialRoom.tutorialRoom(role);}
+                   else {
+                	   driver.die(role);
+                   }
                    //return role;
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
@@ -291,7 +295,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         role.setRace("X");
         role.setp_Class("X");
         role.setInventory("X");
-        role.setLocation("tutorial, ");
+        role.setLocation("");
         role.setGold(5);
         role.setHealth(20);
         role.setXp(0);
