@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     //printing out logo
     public static void logo() throws Exception {
-        System.out.println("You see it coming for you..");
+        System.out.println("\nYou see it coming for you..");
         TimeUnit.SECONDS.sleep(2);
         System.out.println("\nYou had managed to avoid it these past 5 years, but no longer.");
         TimeUnit.SECONDS.sleep(2);
@@ -18,7 +18,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         TimeUnit.SECONDS.sleep(2);
         System.out.println("\nThe magic mists surround you,");
         TimeUnit.SECONDS.sleep(2);
-        System.out.println("\nand transport you to…");
+        System.out.println("\nand transport you to…\n");
         TimeUnit.SECONDS.sleep(1);
         System.out.println("||           ||             \n   "
                 + "\n|| \\\\      //||                 \n"
@@ -48,25 +48,25 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
     public static void main(String[] args) throws Exception {
         //setting variables of experience, money, and health as well as name
         //////////////////////////////////////////////////////////
-        System.out.println("Welcome to the game!");
+        System.out.println("> Welcome to the game!");
         TimeUnit.SECONDS.sleep(1);
-        System.out.println("Loading...");
+        System.out.println("> Loading...");
         // Start a new game or Continue
         TimeUnit.SECONDS.sleep(1);
         Scanner var = new Scanner(System.in);
         String choice = "";
         while (!choice.equals("1") && !choice.equals("2")) {
-        	System.out.println("1. New Game");
-            System.out.println("2. Continue");
-            System.out.println("Select number 1 or 2");
+        	System.out.println("> 1. New Game");
+            System.out.println("> 2. Continue");
+            System.out.println("> Select number 1 or 2");
             choice = var.nextLine();
             if (choice.equals("1")) {
-            	System.out.println("Starting new game...");
+            	System.out.println("> Starting new game...");
                 TimeUnit.SECONDS.sleep(1);
                 Role role =newGame();
                 tutorialRoom.tutorialRoom(role);
                 } else if (choice.equals("2")) {
-                	System.out.println("Loading...");
+                	System.out.println("> Loading...\n");
                 	TimeUnit.SECONDS.sleep(1);
                     //loadGame();
                 try {
@@ -77,11 +77,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
                    //draft.draftRoom();
                    //draft.draftRoom();
                    //driver.exitGame(role);
-                   if (!role.getLocation().contains("tutorial")) {
-                	   tutorialRoom.tutorialRoom(role);}
-                   else {
-                	   driver.die(role);
-                   }
+                   tutorialRoom.tutorialRoom(role);
                    //return role;
                    // Exiting game to save the data to text file with FileUtils 
                     // Function listed below
@@ -102,7 +98,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         boolean flag = true;
         int  i = 0;
         while (flag) {
-            System.out.println("Enter your name : ");
+            System.out.println("\n> Enter your name : ");
             String name = scanner.nextLine();
             if (FileUtils.checkFile(name + ".txt")) {
                 flag = false;
@@ -145,7 +141,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             logo();
             //print logo
 
-            System.out.println("Enter your name : ");
+            System.out.println("\n> Enter your name : ");
             Scanner var = new Scanner(System.in);
             String st = var.nextLine();
             Role role = createNewUser(st);
@@ -163,22 +159,22 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             String ra = "";
             
             while (!ra.equals("elf") && !ra.equals("human") && !ra.equals("dwarf")) {
-                System.out.println("Choose a Race: ");
+                System.out.println("\n> Choose a Race: ");
                 ra = (var.nextLine()).toLowerCase();
 
             }
             if (ra.equals("elf")) {
                 role.setHealth(25);
                 role.setRace("elf");
-                System.out.println("\nYou gained + 5 life!");
+                System.out.println("\n> You gained + 5 life!");
             } else if (ra.equals("human")) {
                 role.setXp(5);
                 role.setRace("human");
-                System.out.println("\nYou gained + 5 experience!");
+                System.out.println("\n> You gained + 5 experience!");
             } else {
                 role.setGold(10);
                 role.setRace("dwarf");
-                System.out.println("\nYou have gained + 10 gold!");
+                System.out.println("\n> You have gained + 10 gold!");
             }
             
             ArrayList<String> Class = new ArrayList<String>();
@@ -196,22 +192,22 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             System.out.println("\n" + Class);
             String cl = "\n";
             while (!cl.equals("wizard") && !cl.equals("knight") && !cl.equals("archer")) {
-                System.out.println("Choose a Class: ");
+                System.out.println("\n> Choose a Class: ");
                 cl = (var.nextLine()).toLowerCase();
 
             }
             if (cl.equals("wizard")) {
                 items += "wand, ";
                 role.setp_Class("wizard");
-                System.out.println("\nYou have gained a wand!");
+                System.out.println("\n> You have gained a wand!");
             } else if (cl.equals("knight")) {
             	items += "sword, ";
                 role.setp_Class("knight");
-                System.out.println("\nYou have gained a sword!");
+                System.out.println("\n> You have gained a sword!");
             } else {
             	items += "archer bow, 10 arrows, ";
                 role.setp_Class("archer");
-                System.out.println("\nYou have gained a archer bow and 10 arrows!");
+                System.out.println("\n> You have gained a archer bow and 10 arrows!");
             }
             role.setInventory(items);
             
@@ -250,32 +246,32 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             System.out.println("\n" + Pronouns);
             String pro = "";
             while (!pro.equals("she") && !pro.equals("he") && !pro.equals("they")) {
-                System.out.println("Choose your pronoun: ");
+                System.out.println("> Choose your pronoun: ");
                 pro = (var.nextLine()).toLowerCase();
 
             }
             role.setPronouns(pro);
             // printing out what they chose from both array and variables
-            System.out.println("\nHello " + role.getName());
+            System.out.println("\n> Hello " + role.getName());
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("\nThis is you:\n" + player_sprite);
+            System.out.println("\n> This is you:\n\n" + player_sprite);
             TimeUnit.SECONDS.sleep(1);
-            System.out.println("\nYour health is at: " + role.getHealth());
+            System.out.println("\n> Your health is at: " + role.getHealth());
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("\nYour experience is at: " + role.getXp());
+            System.out.println("\n> Your experience is at: " + role.getXp());
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("\nYou're at " + role.getGold() + " gold so far!");
+            System.out.println("\n> You're at " + role.getGold() + " gold so far!");
             TimeUnit.SECONDS.sleep(2);
 
-            System.out.println("\nYour race is: " + ra);
+            System.out.println("\n> Your race is: " + ra);
             TimeUnit.SECONDS.sleep(2);
             // hey you got certain amount of life, gold, or exp based on ur class
-            System.out.println("\nYour class is: " + cl);
+            System.out.println("\n> Your class is: " + cl);
             TimeUnit.SECONDS.sleep(2);
             // hey you got certain item based on ur race
-            System.out.println("\nYour inventory: " + items);
+            System.out.println("\n> Your inventory: " + items);
             TimeUnit.SECONDS.sleep(2);
-            System.out.println("\nYour pronoun is: " + role.getPronouns());
+            System.out.println("\n> Your pronoun is: " + role.getPronouns());
             TimeUnit.SECONDS.sleep(2);
             driver.exitGame(role);
             //driver.tutorialRoom();
@@ -295,7 +291,7 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
         role.setRace("X");
         role.setp_Class("X");
         role.setInventory("X");
-        role.setLocation("");
+        role.setLocation("tutorial, ");
         role.setGold(5);
         role.setHealth(20);
         role.setXp(0);
