@@ -63,7 +63,8 @@ public class intro { // INTRO CLASS THAT BASICALLY SPITS OUT INTRO AT YOU.
             if (choice.equals("1")) {
             	System.out.println("Starting new game...");
                 TimeUnit.SECONDS.sleep(1);
-                newGame();
+                Role role =newGame();
+                tutorialRoom.tutorialRoom(role);
                 } else if (choice.equals("2")) {
                 	System.out.println("Loading...");
                 	TimeUnit.SECONDS.sleep(1);
