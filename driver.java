@@ -28,20 +28,20 @@ public class driver {
 	    public static void exitGame(Role role) throws Exception{
 	    	//intro.loadRole();
 	        FileUtils.write(role.getName() + ".txt", role.toString());
-	        System.out.println("Do you want to continue on with the game?");
+	        System.out.println("\n> Do you want to continue on with the game?");
 	        Scanner scanner = new Scanner(System.in);
 	        String meep = "";
 	        while (!meep.equals("yes") && !meep.equals("no")) {
-	        	System.out.println("Answer with yes or no!");
+	        	System.out.println("\n> Please answer with yes or no: ");
 	        	meep = scanner.nextLine();
 	        	if(meep.equals("no")) {
-	        		System.out.println("Loading...");
+	        		System.out.println("> Loading...");
 	                TimeUnit.SECONDS.sleep(1);
-	        		System.out.println("Game over");
+	        		System.out.println("> Game over");
 	                TimeUnit.SECONDS.sleep(1);
 		        	System.exit(0);
 		        	} else if (meep.equals("yes")) {
-	                	System.out.println("Loading...");
+	                	System.out.println("> Loading...");
 		        		//die(role);
 		        	}
 	        	
@@ -54,22 +54,20 @@ public class driver {
 	    	//Role role = loadRole();
 	    	int die = (int) (Math.random() * 3 + 1);
 	    	if (die == 1 && !role.getLocation().contains("1")) {
-            System.out.println("\nYou are being transported by the myst off to....");
+            System.out.println("\n> You are being transported by the myst off to....");
             TimeUnit.SECONDS.sleep(2);
             World_One.main(role);
         } else if (die == 2 && !role.getLocation().contains("2")) {
             //Make a function that would say " you are being transported by the myst off to..." and then also print out all of the character stats (xp, gold, health etc)
-            System.out.println("\nYou are being transported by the myst off to....");
+            System.out.println("\n> You are being transported by the myst off to....");
             TimeUnit.SECONDS.sleep(2);
             World_Two.main(role);
         } else if (die == 3 && !role.getLocation().contains("3")) {
-            System.out.println("\nYou are being transported by the myst off to....");
+            System.out.println("\n> You are being transported by the myst off to....");
             TimeUnit.SECONDS.sleep(2);
             World_Three.main(role);
-        } else if (role.getLocation().contains("1") && role.getLocation().contains("2") && role.getLocation().contains("3")){
-        	System.out.println("Good job! you finished the game!");
         } else {
-        	die(role);
+        	System.out.println("> Good job! you finished the game!");
         }
 	}
     
