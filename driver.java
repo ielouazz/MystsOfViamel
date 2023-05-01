@@ -66,11 +66,11 @@ public class driver {
             System.out.println("\n> You are being transported by the myst off to....");
             TimeUnit.SECONDS.sleep(2);
             World_Three.main(role);
-        } else {
-        	System.out.println("> Good job! you finished the game!");
+		} else if (role.getLocation().contains("1") && role.getLocation().contains("2") && role.getLocation().contains("3")){
+        	System.out.println("Good job! you finished the game!");
+		} else {
+			die(role);
         }
 	}
-    
-
 
 }
