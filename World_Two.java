@@ -10,6 +10,18 @@ public class World_Two {
 		//get scanner for question/answer portions
 		Scanner var = new Scanner(System.in);
 		//printing setting stuff
+		if (role.getRace().contains("human")) {
+			System.out.println("     O\n"
+		            + "    /|\\\n"
+		            + "^^^^/\\^^^^");}
+		else if (role.getRace().contains("elf")) {
+		     System.out.println("    'O'\n"
+		            + "    /|\\\n"
+		            + "^^^^/\\^^^^");}
+		else {
+		     System.out.println("    _o_\n"
+		            + "^^^^/\\^^^^");
+		}
 		System.out.println("You appear in a lush meadow, flowers cover the ground and a circles of trees shades you and conceals what you can only assume to be the rest of the forest. \n"
 				+"What would you like to do?");
 		//They gave to get the keyword "look"
@@ -33,6 +45,18 @@ public class World_Two {
 		//talk a little bit
 		System.out.println("The runes beging to move across the grass, making way for a tunnel that contains a staircase");
 		TimeUnit.SECONDS.sleep(1);
+		if (role.getRace().contains("human")) {
+			System.out.println(" O\n"
+		            + "/|\\     _\\\n"
+		            + "/\\     |_|");}
+		else if (role.getRace().contains("elf")) {
+			System.out.println("'O'\n"
+		            + "/|\\     _\\\n"
+		            + "/\\     |_|");}
+		else {
+			System.out.println("_o_     _\\\n"
+		            + "/\\     |_|");
+		}
 		System.out.println("You go down the stairs to a room covered in more runes with a small treasure chest in the corner");
 		TimeUnit.SECONDS.sleep(1);
 		//wait until player says treasure, chest, or runes
