@@ -84,11 +84,14 @@ public class World_One {
         		choice_two = "";}
         	}
         }
-    System.out.println("You successfully get past the serpant skin.\n"
-    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n"
-    		+ "air is coming from somewhere.. \n"
-    		+ "this is good that means there is a way out of here. \n");
-    if (role.getRace().contains("human")) {
+     System.out.println("You successfully get past the serpant skin.\n"
+    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n");
+    TimeUnit.SECONDS.sleep(1);
+    System.out.println("\nair is coming from somewhere.. ");
+	TimeUnit.SECONDS.sleep(1);
+    System.out.println("this is good that means there is a way out of here. \n");
+	TimeUnit.SECONDS.sleep(1);
+if (role.getRace().contains("human")) {
 		System.out.println("             .-.\n"
 		         + "            (o.o) \n"
 		         + " O           |=| \n"
@@ -126,6 +129,7 @@ public class World_One {
     			+ "INSCRIPTED DAGGER has been added to your inventory");
     	/*add the special dagger to the inventory*/}
     //explanation before combat starts
+	TimeUnit.SECONDS.sleep(1);
     System.out.println("Suddenly you hear a hissing noise getting louder and louder.\n"
     		+ "A giant serpent slithers out from the cave.\n");
     
