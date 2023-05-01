@@ -10,6 +10,18 @@ public class World_Three {
 		role.setLocation(role.getLocation()+"3");
 		Scanner var = new Scanner(System.in);
 		System.out.println("> You enter a cave");
+		if (role.getRace().contains("human")) {
+			System.out.println("  O \n"
+		            + " /|\\ ~(*)~\n"
+						+ " /\\   /-\\");}
+		else if (role.getRace().contains("elf")) {
+			System.out.println(" 'O' \n"
+			           + " /|\\ ~(*)~\n"
+						  + " /\\   /-\\");}
+		else {
+			System.out.println(" _o_ ~(*)~\n"
+					+ " /\\   /-\\");
+		}
 		System.out.println("> A crystal ball rises up behind the mist, an unusual ethereal voice reverberates through the cave:");
 		System.out.println("> Dear stranger, welcome to my carriage. \n> You are automatically a participant in my game,  and I will present mysterious situations to you. \n> Find out the truth behind the veil that I did not tell you by asking further questions. \n> I will only answer \"yes\" or \"no\" to your questions.");
 		System.out.println("> Listen to me carefully.../n");
