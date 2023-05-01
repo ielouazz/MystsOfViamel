@@ -66,10 +66,13 @@ public class World_One {
         	}
         }
     System.out.println("You successfully get past the serpant skin.\n"
-    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n"
-    		+ "air is coming from somewhere.. \n"
-    		+ "this is good that means there is a way out of here. \n"
-    		+ "Further in you go and you see that there is a skeleton with a notebook in one hand and his other is around a chest. ");
+    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n");
+    TimeUnit.SECONDS.sleep(1);
+    System.out.println("\nair is coming from somewhere.. ");
+	TimeUnit.SECONDS.sleep(1);
+    System.out.println("this is good that means there is a way out of here. \n");
+	TimeUnit.SECONDS.sleep(1);
+    System.out.println("Further in you go and you see that there is a skeleton with a notebook in one hand and his other is around a chest. ");
 	//let player choose what to look at
     String choice_three = ""; //variable for player's choice
 	System.out.println("What would you like to do?: ");
@@ -88,6 +91,7 @@ public class World_One {
     			+ "INSCRIPTED DAGGER has been added to your inventory");
     	/*add the special dagger to the inventory*/}
     //explanation before combat starts
+	TimeUnit.SECONDS.sleep(1);
     System.out.println("Suddenly you hear a hissing noise getting louder and louder.\n"
     		+ "A giant serpent slithers out from the cave.\n");
     
