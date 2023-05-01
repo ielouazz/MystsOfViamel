@@ -16,6 +16,25 @@ public class World_One {
 	Scanner var = new Scanner(System.in);
 
 	//printing setting stuff
+	if (role.getRace().contains("human")) {
+		System.out.println("       .-.\n"
+		         + "      (o.o) ~\n"
+		         + " O     |=| ~\n"
+		         + "/|\\    /|\\/\n"
+		         + "/\\     /\\\n");}
+	else if (role.getRace().contains("elf")) {
+		System.out.println("       .-.\n"
+		         + "      (o.o) ~\n"
+		         + "'O'    |=| ~\n"
+		         + "/|\\    /|\\/\n"
+		         + "/\\     /\\\n");}
+	else {
+		System.out.println("       .-.\n"
+		         + "      (o.o) ~\n"
+		         + "       |=| ~\n"
+		         + "_o_    /|\\/\n"
+		         + "/\\     /\\\n");
+	}
 	System.out.println("You enter a cave and notice that there are skeletons holding torches; the men that have already gone down this path that you’re on but did not make it through. \n"
 			+"Going through the cave you notice it is getting darker…");
 	//let player choose how to see in the dark
@@ -66,12 +85,28 @@ public class World_One {
         	}
         }
     System.out.println("You successfully get past the serpant skin.\n"
-    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n");
-    TimeUnit.SECONDS.sleep(1);
-    System.out.println("\nair is coming from somewhere.. ");
-	TimeUnit.SECONDS.sleep(1);
-    System.out.println("this is good that means there is a way out of here. \n");
-	TimeUnit.SECONDS.sleep(1);
+    		+ "When going farther into the cave you notice that your fire is about to be lit out.. \n"
+    		+ "air is coming from somewhere.. \n"
+    		+ "this is good that means there is a way out of here. \n");
+    if (role.getRace().contains("human")) {
+		System.out.println("             .-.\n"
+		         + "            (o.o) \n"
+		         + " O           |=| \n"
+		         + "/|\\   |\\/|   /|\\   _\\\n"
+		         + "/\\    \\||/   /\\   |_|\n");}
+	else if (role.getRace().contains("elf")) {
+		System.out.println("             .-.\n"
+		         + "            (o.o) \n"
+		         + "'O'          |=| \n"
+		         + "/|\\   |\\/|   /|\\   _\\\n"
+		         + "/\\    \\||/   /\\   |_|\n");}
+	else {
+		System.out.println("             .-.\n"
+		         + "            (o.o) \n"
+		         + "             |=| \n"
+		         + "_o_   |\\/|   /|\\   _\\\n"
+		         + "/\\    \\||/   /\\   |_|\n");
+	}
     System.out.println("Further in you go and you see that there is a skeleton with a notebook in one hand and his other is around a chest. ");
 	//let player choose what to look at
     String choice_three = ""; //variable for player's choice
@@ -91,7 +126,6 @@ public class World_One {
     			+ "INSCRIPTED DAGGER has been added to your inventory");
     	/*add the special dagger to the inventory*/}
     //explanation before combat starts
-	TimeUnit.SECONDS.sleep(1);
     System.out.println("Suddenly you hear a hissing noise getting louder and louder.\n"
     		+ "A giant serpent slithers out from the cave.\n");
     
